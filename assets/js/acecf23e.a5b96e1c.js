@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkccsbilhetica_dev_docs=self.webpackChunkccsbilhetica_dev_docs||[]).push([[1903],{1912:c=>{c.exports=JSON.parse('{"blogBasePath":"/ccsbilhetica-dev-docs/blog","blogTitle":"Blog","authorsListPath":"/ccsbilhetica-dev-docs/blog/authors"}')}}]);

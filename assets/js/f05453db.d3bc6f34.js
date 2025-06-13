@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkccsbilhetica_dev_docs=self.webpackChunkccsbilhetica_dev_docs||[]).push([[2728],{2616:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/ccsbilhetica-dev-docs/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
