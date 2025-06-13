@@ -4,7 +4,7 @@ export default <Config>{
   title: 'CCS Bilhética Docs',
   url: 'https://ds-factory.github.io',
   baseUrl: '/ccsbilhetica-dev-docs/',
-  organizationName: 'ccs-bilhetica',
+  organizationName: 'ds-factory',
   projectName: 'ccsbilhetica-dev-docs',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
