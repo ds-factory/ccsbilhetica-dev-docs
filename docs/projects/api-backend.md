@@ -4,7 +4,7 @@ Repositório: [github.com/ds-factory/ccsbilhetica-api.git](https://github.com/ds
 
 ## Resumo
 
-API central que gerencia eventos, bilhetes, assentos, pedidos e operadores. Construída em **Laravel 10** com ambiente multi‑container (**PHP‑FPM + Nginx + MySQL/PostgreSQL + PhpMyAdmin**).
+API central que gerencia eventos, bilhetes, assentos, pedidos e operadores. Construída em **Laravel 10** com ambiente multi‑container (**PHP‑FPM + Nginx + MySQL + PhpMyAdmin**).
 
 ## Como executar
 

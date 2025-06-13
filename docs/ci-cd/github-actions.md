@@ -1,4 +1,4 @@
-# Workflows GitHub Actions
+# Workflows GitHub
 
 | Projeto | Arquivo CI | Gatilho | Destino |
 |---------|-----------|---------|---------|

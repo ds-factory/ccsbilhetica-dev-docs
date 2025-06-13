@@ -1,4 +1,4 @@
-# Instalação do WSL 2 e do Docker Desktop (Windows 10/11)
+# Setup
 
 ## 1 — Ativar os componentes do Windows
 
@@ -16,7 +16,7 @@ Reinicie o computador quando for pedido.
 
 ## 2 — Escolher a distribuição Linux
 
-Na primeira execução, a Microsoft Store surge com as distribuições sugeridas. Recomendamos **Ubuntu 22.04 LTS**.  
+Na primeira execução, a Microsoft Store surge com as distribuições sugeridas. Recomendamos **Ubuntu 22.04 LTS**.
 Depois de instalar, abra o aplicativo *Ubuntu*, defina um utilizador e uma palavra‑passe.
 
 ```powershell
@@ -27,8 +27,8 @@ Verifique que a coluna **VERSION** mostra `2`.
 
 ## 3 — Instalar o Docker Desktop
 
-1. Transfira o instalador em [docs.docker.com/desktop](https://docs.docker.com/desktop/install/windows-install/).  
-2. Durante o assistente, marque **“Use WSL 2 backend”** e seleccione a distribuição Ubuntu.  
+1. Transfira o instalador em [docs.docker.com/desktop](https://docs.docker.com/desktop/install/windows-install/).
+2. Durante o assistente, marque **“Use WSL 2 backend”** e seleccione a distribuição Ubuntu.
 3. Conclua a instalação e reinicie caso seja solicitado.
 
 ⚠️ Em redes corporativas, confirme nas **Settings ▸ Resources ▸ WSL Integration** que a sua distribuição está marcada.
