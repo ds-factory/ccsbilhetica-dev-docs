@@ -11,7 +11,8 @@ export const sidebars = {
         'projects/api-backend',
         'projects/backoffice',
         'projects/web',
-        'projects/pos'
+        'projects/pos',
+        'projects/arenasbuilder'
       ],
     },
   ],
