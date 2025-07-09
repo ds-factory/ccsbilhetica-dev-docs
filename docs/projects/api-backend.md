@@ -4,6 +4,17 @@ Este é o backend API do sistema **CCS Bilhética**, responsável por gerenciar 
 
 ---
 
+## Arquitetura
+
+A aplicação utiliza uma estrutura moderna em Docker com:
+
+- **PHP-FPM**: Gerenciador de processos FastCGI, garantindo melhor performance e gerenciamento de recursos.
+- **Nginx**: Servidor web de alto desempenho atuando como proxy reverso.
+- **MySQL/PostgreSQL**: Suporte a bancos de dados relacionais.
+- **phpMyAdmin**: Interface para administração do banco de dados.
+
+---
+
 ## Requisitos
 
 - Docker
@@ -125,6 +136,24 @@ A API estará disponível em [http://localhost](http://localhost).
 
 - Certifique-se de que o Docker e o Docker Compose estão instalados e atualizados.
 - Verifique e ajuste as permissões dos diretórios `storage` e `bootstrap/cache` caso ocorra erro de permissão.
+
+---
+
+## Teste de autenticação do super usuário
+
+Após subir a aplicação, execute este comando CURL para testar o login como super usuário:
+
+```bash
+curl -X POST http://localhost:8083/api/admin/login \
+  -H "Accept: application/json" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "super_user@datasmart.pt",
+    "password": "root"
+  }'
+```
+
+Se tudo estiver correto, a resposta deve conter o token de autenticação JWT.
 
 ---
 
