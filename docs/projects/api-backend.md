@@ -1,40 +1,132 @@
-# API Backend (Laravel)
+# CCS Bilhética – API Backend
 
-Repositório: [github.com/ds-factory/ccsbilhetica-api.git](https://github.com/ds-factory/ccsbilhetica-api.git)
+Este é o backend API do sistema **CCS Bilhética**, responsável por gerenciar eventos, bilhetes, assentos, pedidos e operadores. Construído com **Laravel** e **Docker**, oferece uma estrutura robusta e escalável para operações de bilhetagem em tempo real.
 
-## Resumo
+---
 
-API central que gerencia eventos, bilhetes, assentos, pedidos e operadores. Construída em **Laravel 10** com ambiente multi‑container (**PHP‑FPM + Nginx + MySQL + PhpMyAdmin**).
+## Requisitos
 
-## Como executar
+- Docker
+- Docker Compose
+
+---
+
+## Como iniciar o ambiente de desenvolvimento
+
+### 1. Configurar variáveis de ambiente
+
+Copie o arquivo de exemplo `.env.example` para `.env` e ajuste as variáveis de ambiente conforme necessário:
 
 ```bash
-git clone https://github.com/ds-factory/ccsbilhetica-api.git
-cd ccsbilhetica-api
-cp .env.example .env            # ajuste credenciais se necessário
-docker compose up -d --build    # inicia app, Nginx, base de dados e PhpMyAdmin
+cp .env.example .env
 ```
 
-### Pós‑deploy
+Este arquivo define as variáveis necessárias para a aplicação se conectar ao banco de dados.
+
+---
+
+### 2. Build e start dos containers
+
+Utilize o Docker Compose para construir as imagens e iniciar os containers em modo destacado:
 
 ```bash
-docker compose exec app composer install
-docker compose exec app php artisan key:generate
-docker compose exec app php artisan migrate --seed
+docker-compose up -d --build
 ```
 
-A API fica disponível em [http://localhost:8000](http://localhost:8000).
+Este comando irá criar a imagem (caso necessário) e iniciar os containers em segundo plano.
 
-### Estrutura Docker
+---
 
-* **Dockerfile** instala PHP 8.2, extensões, Composer e prepara permissões.
-* **docker-compose.yml** define:
-  * `app` – PHP‑FPM
-  * `nginx` – porta 8000
-  * `phpmyadmin` – porta 8081
+### 3. Instalar dependências do Laravel
 
-### Workflows CI/CD
+Acesse o container da aplicação e instale as dependências usando o Composer:
 
-* `develop.yml` – deploy FTP para staging em cada push `develop`
-* `staging.yml` – deploy FTP para staging em push `main`
-* `production.yml` – deploy FTP para produção em release publicado
+```bash
+docker exec -it ccsbilhetica-api bash -c "composer install"
+```
+
+---
+
+### 4. Executar as migrations do banco de dados
+
+Com o ambiente rodando, execute as migrations:
+
+```bash
+docker exec -it ccsbilhetica-api bash -c "php artisan migrate"
+```
+
+Se desejar, execute também as seeds para popular o banco de dados com dados iniciais:
+
+```bash
+docker exec -it ccsbilhetica-api bash -c "php artisan db:seed"
+```
+
+---
+
+### 5. Gerar chave da aplicação Laravel
+
+Para garantir a segurança da aplicação, gere uma nova chave:
+
+```bash
+docker exec -it ccsbilhetica-api bash -c "php artisan key:generate"
+```
+
+---
+
+### 6. Ajustar permissões e limpar caches
+
+Garanta as permissões corretas dos diretórios `storage` e `bootstrap/cache` e limpe caches do Laravel:
+
+```bash
+docker exec -it ccsbilhetica-api bash -c "chown -R www-data:www-data storage bootstrap/cache && chmod -R 775 storage bootstrap/cache && php artisan view:clear"
+```
+
+---
+
+### 7. Criar link simbólico para o storage
+
+Se necessário, crie o link simbólico para o diretório de storage:
+
+```bash
+docker exec -it ccsbilhetica-api bash -c "php artisan storage:link"
+```
+
+---
+
+### 8. Acessar a API
+
+A API estará disponível em [http://localhost](http://localhost).
+
+---
+
+## Comandos úteis
+
+- **Parar containers:**
+
+  ```bash
+  docker-compose down
+  ```
+
+- **Reiniciar containers:**
+
+  ```bash
+  docker-compose up -d
+  ```
+
+- **Acessar o container:**
+
+  ```bash
+  docker exec -it ccsbilhetica-api bash
+  ```
+
+---
+
+## Observações
+
+- Certifique-se de que o Docker e o Docker Compose estão instalados e atualizados.
+- Verifique e ajuste as permissões dos diretórios `storage` e `bootstrap/cache` caso ocorra erro de permissão.
+
+---
+
+**CCS Bilhética** – Sistema de Bilhetagem em Tempo Real
+
