@@ -1,5 +1,15 @@
 # Setup
 
+# Instalação no Windows/WSL + Docker
+
+Este vídeo mostra o processo passo a passo:
+
+<video width="800" controls>
+  <source src="/videos/setup-docker.mp4" type="video/mp4" />
+  Seu navegador não suporta o elemento de vídeo.
+</video>
+
+
 ## 1 — Ativar os componentes do Windows
 
 Abra o **PowerShell** como Administrador e execute:
