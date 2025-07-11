@@ -4,6 +4,22 @@ Este é o backend API do sistema **CCS Bilhética**, responsável por gerenciar 
 
 ---
 
+## Clonar o repositório
+
+Clone o repositório oficial:
+
+```bash
+git clone https://github.com/ds-factory/ccsbilhetica-api.git
+```
+
+Acesse o diretório clonado:
+
+```bash
+cd ccsbilhetica-api
+```
+
+---
+
 ## Arquitetura
 
 A aplicação utiliza uma estrutura moderna em Docker com:
@@ -132,22 +148,38 @@ A API estará disponível em [http://localhost](http://localhost).
 
 ---
 
-## Observações
+## Teste básico – Hello World
 
-- Certifique-se de que o Docker e o Docker Compose estão instalados e atualizados.
-- Verifique e ajuste as permissões dos diretórios `storage` e `bootstrap/cache` caso ocorra erro de permissão.
+Para verificar rapidamente se sua API está respondendo corretamente, adicione a rota abaixo no arquivo `routes/api.php`:
+
+```php
+Route::get('hello_world', function () {
+    return response()->json(['message' => 'Hello, World!']);
+})->name('public.hello_world');
+```
+
+Reinicie os containers se necessário, depois teste com o seguinte comando CURL:
+
+```bash
+curl -X GET http://localhost:8083/api/hello_world   -H "Accept: application/json"
+```
+
+Se tudo estiver correto, você verá a resposta:
+
+```json
+{
+  "message": "Hello, World!"
+}
+```
 
 ---
 
 ## Teste de autenticação do super usuário
 
-Após subir a aplicação, execute este comando CURL para testar o login como super usuário:
+Após validar o *Hello World*, teste o login como super usuário com:
 
 ```bash
-curl -X POST http://localhost:8083/api/admin/login \
-  -H "Accept: application/json" \
-  -H "Content-Type: application/json" \
-  -d '{
+curl -X POST http://localhost:8083/api/admin/login   -H "Accept: application/json"   -H "Content-Type: application/json"   -d '{
     "email": "super_user@datasmart.pt",
     "password": "root"
   }'
@@ -158,4 +190,3 @@ Se tudo estiver correto, a resposta deve conter o token de autenticação JWT.
 ---
 
 **CCS Bilhética** – Sistema de Bilhetagem em Tempo Real
-
