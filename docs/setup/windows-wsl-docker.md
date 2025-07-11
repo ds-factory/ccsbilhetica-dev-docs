@@ -5,7 +5,7 @@
 Este vídeo mostra o processo passo a passo:
 
 <video width="800" controls>
-  <source src="/videos/setup-docker.mp4" type="video/mp4" />
+  <source src="https://ds-factory.github.io/ccsbilhetica-dev-docs/videos/setup-docker.mp4" type="video/mp4" />
   Seu navegador não suporta o elemento de vídeo.
 </video>
 
