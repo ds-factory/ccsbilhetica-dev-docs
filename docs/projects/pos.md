@@ -1,25 +1,58 @@
-# POS (React + Vite)
+# Backoffice (React + Vite)
 
-Repositório: [github.com/ds-factory/ccsbilhetica-pos.git](https://github.com/ds-factory/ccsbilhetica-pos.git)
+Repositório: [github.com/ds-factory/ccsbilhetica-backoffice.git](https://github.com/ds-factory/ccsbilhetica-backoffice.git)
+
+---
 
 ## Executar com Docker
 
 ```bash
 git clone https://github.com/ds-factory/ccsbilhetica-pos.git
 cd ccsbilhetica-pos
+
+# Copiar variáveis de ambiente antes de subir o contêiner
+cp .env.example .env
+
 docker compose up -d    # compila a imagem e inicia o contêiner
 ```
 
-A aplicação estará disponível em [http://localhost:5174](http://localhost:5174).
+A aplicação estará disponível em [http://localhost:5173](http://localhost:5173).
 
-### Login no GitHub Packages
+---
+
+## Executar sem Docker
+
+Para executar localmente, é necessário:
+
+- Node na versão **20.11.1**
+- Yarn instalado
+
+### Passos:
 
 ```bash
+git clone https://github.com/ds-factory/ccsbilhetica-pos.git
+cd ccsbilhetica-pos
+
+# Copiar variáveis de ambiente
+cp .env.example .env
+
+# Exportar o token do GitHub Packages
+export GH_TOKEN=seu_token_github_aqui
+
+# Autenticar no GitHub Packages
 npm login --registry=https://npm.pkg.github.com
-# username → GitHub user
-# token    → GH_TOKEN com escopo read:packages
+# username → seu usuário do GitHub
+# token    → GH_TOKEN com escopo read:packages
+
+# Instalar dependências e iniciar o projeto
+yarn install
+yarn start
 ```
 
-### Workflows
+A aplicação estará disponível em [http://localhost:5173](http://localhost:5173).
 
-`POS – Development/Staging/Production Deploy` publicam a pasta `dist/` via FTP após build.
+---
+
+## Workflows
+
+Os workflows `POS – Development/Staging/Production Deploy` publicam a pasta `dist/` via FTP após o build.
