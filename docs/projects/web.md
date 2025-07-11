@@ -1,4 +1,4 @@
-# Backoffice (React + Vite)
+# Web (React + Vite)
 
 Repositório: [github.com/ds-factory/ccsbilhetica-backoffice.git](https://github.com/ds-factory/ccsbilhetica-backoffice.git)
 
